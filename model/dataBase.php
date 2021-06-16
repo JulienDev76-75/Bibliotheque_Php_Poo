@@ -1,20 +1,16 @@
 <?php
-// Classe pour se connecter à la base de données
 
-try {
-    $db = new PDO('mysql:host=localhost;dbname=banque_sql;charset=utf8', 'root', '');
-}
 
-catch(Exception $error) {
-    die($error->getMessage());
-}
+// require "connexion.php";
 
-// Son usage n'est pas obligatoire, vous pouvez faire sans
-
-class dataBase
+//But de DATABASE est d'établir une connexion à la BDD avec l'objet PDO
+abstract class DataBase
 {
+  protected PDO $db;
 
-
+  public function __construct() {
+      $this->db = Connexion::getPDOConnexion();
+  }
 }
 
 ?>

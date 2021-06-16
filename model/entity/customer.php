@@ -1,19 +1,20 @@
 <?php
 // Classe représetant les utilisateurs stockés en base de données
-class User {
+
+require_once "model/entity/entity.php";
+
+class Customer {
 
         protected int $id;
         private string $firstname;
         private string $lastname; 
-        private string $profession; 
-        private string $number_secu; 
-        private string $birthday;
-        private string $city;  
-        private int $postal_code; 
-        private string $country; 
+        private string $adress; 
+        private string $city; 
+        private string $postal_code;
+        private int $age;  
         private string $mail; 
-        private string $customer_password;
-        private int $phone;
+        private int $phone; 
+ 
     
         public function setId(int $id) {
             $this->id = $id;
@@ -39,38 +40,23 @@ class User {
             return $this->lastname;
         }
     
-        public function setProfession(string $profession) {
-            $this->profession = $profession;
+        public function setAdress(string $adress) {
+            $this->adress = $adress;
         }
     
-        public function getProfession(){
-            return $this->profession;
+        public function getAdress(){
+            return $this->adress;
         }
     
-        public function setNumber_secu(int $number_secu) {
-            $this->number_secu  = $number_secu;
-        }
-    
-        public function getNumber_secu(){
-            return $this->number_secu ;
-        }
-    
-        public function setBirthday(string $birthday) {
-            $this->birthday = $birthday;
-        }
-    
-        public function getBirthday(){
-            return $this->birthday;
-        }
-    
-        public function setCity(string $city) {
-            $this->city = $city;
+        public function setCity(int $city) {
+            $this->city  = $city;
         }
     
         public function getCity(){
-            return $this->city;
+            return $this->city ;
         }
-    
+
+        
         public function setPostal_code(int $postal_code) {
             $this->postal_code = $postal_code;
         }
@@ -79,12 +65,12 @@ class User {
             return $this->postal_code;
         }
     
-        public function setCountry(string $country) {
-            $this->country = $country;
+        public function setAge(string $age) {
+            $this->age = $age;
         }
     
-        public function getCountry(){
-            return $this->country;
+        public function getAge(){
+            return $this->age;
         }
     
         public function setMail(string $mail) {
@@ -93,14 +79,6 @@ class User {
     
         public function getMail(){
             return $this->mail;
-        }
-    
-        public function setCustomer_password(string $customer_password) {
-            $this->customer_password = $customer_password;
-        }
-    
-        public function getCustomer_password(){
-            return $this->customer_password;
         }
     
         public function setPhone(int $phone) {

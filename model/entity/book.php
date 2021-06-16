@@ -1,20 +1,22 @@
 <?php
 // Classe représetant les livres stockés en base de données
+
+
+// require_once "model/entity/entity.php";
+
+
 class Book {
 
     protected int $id;
-    private string $firstname;
-    private string $lastname; 
-    private string $profession; 
-    private string $number_secu; 
-    private string $birthday;
-    private string $city;  
-    private int $postal_code; 
-    private string $country; 
-    private string $mail; 
-    private string $customer_password;
-    private int $phone;
-
+    private string $title;
+    private string $author; 
+    private string $editing; 
+    private bool $statut; 
+    private string $category;
+    private string $pitch;  
+    private  $loan_date; 
+    // private  $customer_id; 
+    private ?int $customer_id;
     public function setId(int $id) {
         $this->id = $id;
     }
@@ -23,96 +25,75 @@ class Book {
         return $this->id;
     }
 
-    public function setFirstname(string $firstname) {
-        $this->firstname = $firstname;
+    public function setTitle(string $title) {
+        $this->title = $title;
     }
 
-    public function getFirstname(){
-        return $this->firstname;
+    public function getTitle(){
+        return $this->title;
     }
 
-    public function setLastname(string $lastname) {
-        $this->lastname = $lastname;
+    public function setAuthor(string $author) {
+        $this->author = $author;
     }
 
-    public function getLastname(){
-        return $this->lastname;
+    public function getAuthor(){
+        return $this->author;
     }
 
-    public function setProfession(string $profession) {
-        $this->profession = $profession;
+    public function setEditing(string $editing) {
+        $this->editing = $editing;
     }
 
-    public function getProfession(){
-        return $this->profession;
+    public function getEditing(){
+        return $this->editing;
     }
 
-    public function setNumber_secu(int $number_secu) {
-        $this->number_secu  = $number_secu;
+    public function setStatut(bool $statut) {
+        $this->statut  = $statut;
     }
 
-    public function getNumber_secu(){
-        return $this->number_secu ;
+    public function getStatut(){
+        return $this->statut ;
     }
 
-    public function setBirthday(string $birthday) {
-        $this->birthday = $birthday;
+    public function setCategory(string $category) {
+        $this->category = $category;
     }
 
-    public function getBirthday(){
-        return $this->birthday;
+    public function getCategory(){
+        return $this->category;
     }
 
-    public function setCity(string $city) {
-        $this->city = $city;
+    public function setPitch(string $pitch) {
+        $this->pitch = $pitch;
     }
 
-    public function getCity(){
-        return $this->city;
+    public function getPitch(){
+        return $this->pitch;
     }
 
-    public function setPostal_code(int $postal_code) {
-        $this->postal_code = $postal_code;
+    public function setLoan_Date( $loan_date) {
+        $this->loan_date = $loan_date;
     }
 
-    public function getPostal_code(){
-        return $this->postal_code;
+    public function getLoan_date() {
+        return $this->loan_date;
     }
 
-    public function setCountry(string $country) {
-        $this->country = $country;
+    public function setCustomer_id( $customer_id) {
+        if($customer_id) {
+        $this->customer_id = $customer_id;
+        }
+        else {
+            $this->customer_id = NULL;
+        }
     }
 
-    public function getCountry(){
-        return $this->country;
+    public function getCustomer_id() {
+        return $this->customer_id;
     }
-
-    public function setMail(string $mail) {
-        $this->mail = $mail;
-    }
-
-    public function getMail(){
-        return $this->mail;
-    }
-
-    public function setCustomer_password(string $customer_password) {
-        $this->customer_password = $customer_password;
-    }
-
-    public function getCustomer_password(){
-        return $this->customer_password;
-    }
-
-    public function setPhone(int $phone) {
-        $this->phone = $phone;
-    }
-
-    public function getPhone(){
-        return $this->phone;
-    }
-
-
-
+    //on injecte données de la bdd déclarée sous la variable $data, données possiblement nulle 
     public function __construct(?array $data=null) {
         if($data) {
             foreach($data as $key => $value) {

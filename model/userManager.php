@@ -1,5 +1,7 @@
 <?php
 
+require "dataBase.php";
+
 class userManager {
 
   // Récupère tous les utilisateurs
