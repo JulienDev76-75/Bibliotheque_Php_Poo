@@ -7,17 +7,17 @@
 
 class Book {
 
-    protected int $id;
+    protected ?int $id;
     private string $title;
     private string $author; 
     private string $editing; 
     private bool $statut; 
     private string $category;
     private string $pitch;  
-    private  $loan_date; 
-    // private  $customer_id; 
+    private ?int $loan_date; 
     private ?int $customer_id;
-    public function setId(int $id) {
+
+    public function setId(?int $id) {
         $this->id = $id;
     }
 
@@ -73,15 +73,20 @@ class Book {
         return $this->pitch;
     }
 
-    public function setLoan_Date( $loan_date) {
-        $this->loan_date = $loan_date;
+    public function setLoan_Date(?int $loan_date) {
+        if($loan_date) {
+            $this->loan_date = $loan_date;
+            }
+            else {
+                $this->loan_date = NULL;
+            }
     }
 
     public function getLoan_date() {
         return $this->loan_date;
     }
 
-    public function setCustomer_id( $customer_id) {
+    public function setCustomer_id(?int $customer_id) {
         if($customer_id) {
         $this->customer_id = $customer_id;
         }

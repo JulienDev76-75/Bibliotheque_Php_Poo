@@ -32,7 +32,6 @@ CREATE TABLE book (
     FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
 
-
 INSERT INTO customer (firstname, lastName, adress, city, postal_code, age, mail, phone) 
 VALUES 
 ('Julien', 'Coart', '47 rue de lessard', 'Rouen', '76100', 33, 'julien.coart@gmail.com', 0612548654),
