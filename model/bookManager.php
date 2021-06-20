@@ -10,8 +10,18 @@ class BookManager {
   $this->db = Connexion::getPDOConnexion();
 }
 
-  // Récupère le détail d'un livre et son emprunteur = Jointure customer / book
+  // Récupère tous les livres et les emprunteurs correspondant ou non
   public function getBook() {
+    // $query = $this->db->query("SELECT title, author, statut, loan_date, firstname, lastname, adress, city, postal_code, mail, phone FROM book
+    // INNER JOIN customer ON book.customer_id=customer.id");
+    $query = $this->db->query("SELECT b.author, c.firstname, c.lastname FROM book AS b INNER JOIN customer AS c ON b.customer_id = c.id");
+    $book = $query->fetch(PDO::FETCH_ASSOC);
+    return $book;
+    // $books = $query->fetchAll(PDO::FETCH_ASSOC);
+    // foreach($books as $key => $book) {
+    //   $books[$key] = new Book($book);
+    //   }
+    //   return $books;
   }
 
   // Récupère toute la liste de livres pour le catalogue
