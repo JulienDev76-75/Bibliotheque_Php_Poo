@@ -11,7 +11,7 @@ class Book {
     private ?int $statut = null; 
     private string $category;
     private string $pitch;  
-    private  $loan_date; 
+    private $loan_date; 
     private ?int $customer_id;
 
     //on injecte données de la bdd déclarée sous la variable $data, données possiblement nulle 
