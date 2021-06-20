@@ -61,7 +61,7 @@ class BookManager {
   public function deleteBook(Book $book) {
     $query = $this->db->prepare("DELETE FROM book WHERE id = :id");
     $result = $query->execute([
-        'id' => $book->getID(),
+        'id' => $book->getId(),
     ]);
     return $result;
   } 

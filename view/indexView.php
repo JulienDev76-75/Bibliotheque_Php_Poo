@@ -40,6 +40,8 @@ require "layout/header.php";
 
 <h2 class="text-center mt-5 mb-5 text-danger">La liste des livres :</h2>
 
+<!-- <a href="delete.php?id= php echo $customer->getId() /php " class="btn btn-info">Supprimer</a>-->
+
 </div>
 
 <?php include ("layout/footer.php"); ?> 

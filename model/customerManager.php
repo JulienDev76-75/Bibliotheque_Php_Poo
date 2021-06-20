@@ -13,10 +13,7 @@ class CustomerManager {
   // Récupère tous les utilisateurs
   public function getCustomers() {
     $query = $this->db->query("SELECT * FROM customer");
-    //on spécifie comment on récupère les éléments : ici FETCH_ASSOC
     $customers = $query->fetchAll(PDO::FETCH_ASSOC);
-    // je transforme chaque entrée du tableau en OBJET en l'hydratant, on convertit le tab. associatif du Fetch en objet
-    // Rappel : index de la ligne ou entrée => nom de la colonne -> ex: "echo $books[0][title]
     foreach($customers as $key => $customer) {
     $customers[$key] = new Customer($customer);
     }
@@ -36,7 +33,16 @@ class CustomerManager {
   }
 
   // Récupère un utilisateur par son code personnel
-  public function getUser() {
+  public function getCustomer() {
 
   }
+
+  // Supprimer un utilisateur de la bdd
+  public function deleteCustomer(Customer $customer) {
+    $query = $this->db->prepare("DELETE FROM book WHERE id = :id");
+    $result = $query->execute([
+        'id' => $customer->getId(),
+    ]);
+    return $result;
+  } 
 }
