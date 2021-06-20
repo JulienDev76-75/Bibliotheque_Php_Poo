@@ -10,7 +10,7 @@ class BookManager {
   $this->db = Connexion::getPDOConnexion();
 }
 
-  // Récupère tous les livres et les emprunteurs correspondant ou non
+  // Récupère le livre et l'emprunteur correspondant ou non
   public function getBook() {
     // $query = $this->db->query("SELECT title, author, statut, loan_date, firstname, lastname, adress, city, postal_code, mail, phone FROM book
     // INNER JOIN customer ON book.customer_id=customer.id");
@@ -69,7 +69,7 @@ class BookManager {
   }
 
   public function deleteBook(Book $book) {
-    $query = $this->db->prepare("DELETE FROM book WHERE id = :id");
+    $query = $this->db->prepare("DELETE FROM book WHERE id=:id");
     $result = $query->execute([
         'id' => $book->getId(),
     ]);
