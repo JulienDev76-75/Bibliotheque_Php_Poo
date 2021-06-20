@@ -7,8 +7,6 @@ $bookManager = new BookManager();
 $books = $bookManager -> getBooks();
 var_dump($books);
 
-
-
 // Controlleur qui gére l'affichage de tous les livres
 
 require "view/indexView.php";

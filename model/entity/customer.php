@@ -1,8 +1,6 @@
 <?php
 // Classe représetant les utilisateurs stockés en base de données
 
-require_once "model/entity/entity.php";
-
 class Customer {
 
         protected int $id;
@@ -14,8 +12,18 @@ class Customer {
         private int $age;  
         private string $mail; 
         private int $phone; 
+
+        public function __construct(?array $data=null) {
+            if($data) {
+                foreach($data as $key => $value) {
+                    $setter = "set" . ucfirst($key);
+                    if(method_exists($this, $setter)) {
+                        $this->$setter($value);
+                    }
+                }
+            }
+        }
  
-    
         public function setId(int $id) {
             $this->id = $id;
         }
@@ -48,14 +56,13 @@ class Customer {
             return $this->adress;
         }
     
-        public function setCity(int $city) {
+        public function setCity(string $city) {
             $this->city  = $city;
         }
     
         public function getCity(){
             return $this->city ;
         }
-
         
         public function setPostal_code(int $postal_code) {
             $this->postal_code = $postal_code;
@@ -88,18 +95,6 @@ class Customer {
         public function getPhone(){
             return $this->phone;
         }
-    
-    
-    
-        public function __construct(?array $data=null) {
-            if($data) {
-                foreach($data as $key => $value) {
-                    $setter = "set" . ucfirst($key);
-                    if(method_exists($this, $setter)) {
-                        $this->$setter($value);
-                    }
-                }
-            }
-        }
+
     }
 

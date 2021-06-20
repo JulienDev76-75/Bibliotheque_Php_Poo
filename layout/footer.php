@@ -1,6 +1,6 @@
 </main>
-<footer class="container container-fluid mt-5 mb-0 bg-secondary text-white text-center">
-  <section class="container">
+<footer class="footer pt-5 pb-5 bg-dark text-white">
+  <section class="container text-center text-white mt-5 mb-5">
     <p>Ce logiciel de bibliothèque a été développé par un type lambda.</p>
   </section>
 </footer>
