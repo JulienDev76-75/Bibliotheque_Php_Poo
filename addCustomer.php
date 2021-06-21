@@ -3,34 +3,43 @@
  include "layout/header.php";
  require "model/bookManager.php";
  require "model/entity/book.php";
- $bookmanager = new BookManager();
+
+ $customerManager = new CustomerManager();
    if(!empty($_POST) && isset($_POST["valider"])) {
-     if(empty($_POST["author"])) {
-       $author = htmlspecialchars($_POST["author"]);
-       echo "<p> Veuillez rentrer un auteur</p>";
+     if(empty($_POST["prénom"])) {
+       $author = htmlspecialchars($_POST["prénom"]);
+       echo "<p> Veuillez rentrer un prénom</p>";
      }
-     if(empty($_POST["title"])) {
-       $title = htmlspecialchars($_POST["title"]);
-       echo "<p> Veuillez rentrer un titre</p>";
+     if(empty($_POST["nom"])) {
+       $title = htmlspecialchars($_POST["nom"]);
+       echo "<p> Veuillez rentrer un nom</p>";
      }
-     if(empty($_POST["editing"]) && is_numeric($_POST["editing"])) {
-       $editing = htmlspecialchars($_POST["editing"]);
-       echo "<p> Veuillez rentrer un résumé</p>";
+     if(empty($_POST["adress"])) {
+       $editing = htmlspecialchars($_POST["adress"]);
+       echo "<p> Veuillez rentrer une adresse</p>";
      }
-     if(empty($_POST["category"])) {
-       $category = htmlspecialchars($_POST["category"]);
-       echo "<p> Veuillez rentrer une catégory</p>";
+     if(empty($_POST["city"])) {
+       $category = htmlspecialchars($_POST["city"]);
+       echo "<p> Veuillez rentrer une ville</p>";
      }
-     if(empty($_POST["pitch"])) {
-       $pitch = htmlspecialchars($_POST["pitch"]);
-       echo "<p>Veuillez rentrer un résumé</p>";
+     if(empty($_POST["postal_code"])) {
+       $pitch = htmlspecialchars($_POST["postal_code"]);
+       echo "<p>Veuillez rentrer un code postal</p>";
      }
+     if(empty($_POST["mail"]) && filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)) {
+        $pitch = htmlspecialchars($_POST["mail"]);
+        echo "<p>Veuillez rentrer un mail valide</p>";
+      }
+     if(empty($_POST["phone"]) && is_numeric($_POST["phone"]) && ctype_digit($_POST["phone"])) {
+        $pitch = htmlspecialchars($_POST["phone"]);
+        echo "<p>Veuillez rentrer dix chiffres</p>";
+      }
      else {
-     $book = new Book($_POST);
+     $customer = new Customer($_POST);
      //J'ajoute l'objet BOOK en base de données avec la méthode addBook() définie dans bookManager
-     $result = $bookmanager->addBook($book);
+     $result = $customerManager->addCustomer($book);
      //message de succès pour dire que le livvre a bien été ajouté
-     $success = "votre livre a bien été ajouté";
+     $success = "votre utilisateur a bien été ajouté";
      var_dump($book);
      }
    }
