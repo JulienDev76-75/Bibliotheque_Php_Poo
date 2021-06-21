@@ -33,7 +33,6 @@ require "layout/header.php";
     <?php endforeach; ?>
   </tbody>
 </table>
-
 </div>
 
 <?php include ("layout/footer.php"); ?> 

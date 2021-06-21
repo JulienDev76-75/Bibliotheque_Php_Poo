@@ -32,7 +32,7 @@ class CustomerManager {
     return $result;    
   }
 
-  // Récupère un utilisateur par son code personnel
+  // Récupère un utilisateur par son code personnel - générer code personnel par fonction aléatoire -> 
   public function getCustomer() {
 
   }
@@ -43,6 +43,21 @@ class CustomerManager {
     $result = $query->execute([
         'id' => $customer->getId(),
     ]);
+    return $result;
+  } 
+
+  // ajouter un utilisateur de la bdd
+  public function addCustomer(Customer $customer) {
+    $query = $this->db->prepare("INSERT INTO customer(firstname, lastname, adress, city, postal_code, mail, phone) VALUES(:firstname, :lastname, :adress, :city, :postal_code, :mail, :phone)");
+    $result = $query->execute([
+      'firstname' => $customer->getFirstname(),
+      'lastname' => $customer->getLastname(),
+      'adress' => $customer->getAdress(),
+      'city' => $customer->getCity(),
+      'postal_code' => $customer->getPostal_code(),
+      'mail' => $customer->getMail(),
+      'phone' => $customer->getPhone(),
+      ]);
     return $result;
   } 
 }

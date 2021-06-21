@@ -8,7 +8,7 @@ class Book {
     private string $title;
     private string $author; 
     private string $editing; 
-    private ?int $statut = null; 
+    private ?string $statut = null; 
     private string $category;
     private string $pitch;  
     private $loan_date; 
@@ -58,8 +58,13 @@ class Book {
         return $this->editing;
     }
 
-    public function setStatut(?int $statut) {
-        $this->statut= $statut;
+    public function setStatut(?string $statut) {
+        if($statut === "1") {
+            $this->statut = '<i class="fas fa-check"></i>';
+          }
+          else {
+            $this->statut = "<i class='far fa-times-circle'></i>";
+          }
     }
 
     public function getStatut(){
