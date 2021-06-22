@@ -1,9 +1,9 @@
 <!-- A METTRE DANS LE CONTROLER -->
 <?php
- include "layout/header.php";
  require "model/bookManager.php";
  require "model/entity/book.php";
  $bookmanager = new BookManager();
+ 
    if(!empty($_POST) && isset($_POST["valider"])) {
      if(empty($_POST["author"])) {
        $author = htmlspecialchars($_POST["author"]);
@@ -31,7 +31,6 @@
      $result = $bookmanager->addBook($book);
      //message de succès pour dire que le livvre a bien été ajouté
      $success = "votre livre a bien été ajouté";
-     var_dump($book);
      }
    }
 

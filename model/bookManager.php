@@ -12,8 +12,9 @@ class BookManager {
 
   // Récupère le livre et l'emprunteur correspondant ou non
   public function getBook() {
-    $query = $this->db->query("SELECT b.*, c.firstname, c.lastname, c.adress FROM book AS b LEFT JOIN customer AS c ON b.customer_id = c.id");
-    $book = $query->fetch(PDO::FETCH_ASSOC);
+    $query = $this->db->query("SELECT b.*, c.firstname, c.lastname, c.adress, c.city, c.mail, c.phone FROM book AS b LEFT JOIN customer AS c ON b.customer_id = c.id");
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    $book = new Book($result);
     return $book;
   }
 
@@ -51,20 +52,20 @@ class BookManager {
     return $result;     
   }
 
-  // Met à jour le statut d'un livre emprunté à savoir s'il prêté OU non
-  public function updateAccount(Book $book) {
-    $query = $this->db->prepare("UPDATE boox SET statut = :statut WHERE id = :id ");
-    $result = $query->execute([
+  // Met à jour le statut d'un livre emprunté à savoir s'il est prêté OU non
+  public function updateBook(Book $book) {
+    $query = $this->db->prepare("UPDATE book SET statut = :statut WHERE id = :id");
+    $book = $query->execute([
       'statut' => $book->getstatut(),
       'id' => $book->getId(),
     ]);
-    return $result;
+    return $book;
   }
 
-  public function deleteBook(Book $book) {
-    $query = $this->db->prepare("DELETE FROM book WHERE id=:id");
+  public function deleteBook(int $id) {
+    $query = $this->db->prepare("DELETE FROM book WHERE id=:id LIMIT 1");
     $result = $query->execute([
-        'id' => $book->getId(),
+        'id' => $id,
     ]);
     return $result;
   } 

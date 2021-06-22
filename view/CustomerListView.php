@@ -33,7 +33,7 @@ require "layout/header.php";
       <td><?php echo $customer->getAge(); ?></td>
       <td><?php echo $customer->getMail(); ?></td>
       <td><?php echo $customer->getPhone(); ?></td>
-      <td> <a href="user.php?id=<?php echo $customer->getId();?>" class="btn btn-info">Gérer</a></td>
+      <td> <a href="customerDetail.php?id=<?php echo $customer->getId();?>" class="btn btn-info">Gérer</a></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

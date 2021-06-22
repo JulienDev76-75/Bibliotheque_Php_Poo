@@ -26,7 +26,7 @@ require "layout/header.php";
         <div><label>catégorie :</div> 
         <input class="" type="text" name="category" value="category" /><br>
         <div><label>pitch :</div> 
-        <input class="" type="text" name="pitch" value="pitch" /><br>
+        <textarea class="" type="textarea" name="pitch" value="pitch"></textarea><br>
         <input class="btn btn-primary mt-3 mb-5" type="submit" name="valider" value="envoyer">
     </div>
 </form>

@@ -42,7 +42,7 @@ require "layout/header.php";
     <small id="emailHelp" class="form-text text-muted">Assurez-vous de rentrer un numéro à 10 chiffres</small>
   </div>
 
-  <button type="submit" name="valider" class="btn btn-danger mb-5">Submit</button>
+  <button type="submit" name="valider" class="btn btn-danger mb-5">valider</button>
 </form>
 
 <?php require "layout/footer.php"; ?>

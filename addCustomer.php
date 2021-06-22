@@ -2,10 +2,9 @@
 <?php
  require "model/customerManager.php";
  require "model/entity/customer.php";
-
  $customerManager = new CustomerManager();
+ 
    if(!empty($_POST) && isset($_POST["valider"])) {
-     
      if(empty($_POST["firstname"])) {
        $author = htmlspecialchars($_POST["firstname"]);
        echo "<p> Veuillez rentrer un prénom</p>";
@@ -38,6 +37,7 @@
         $pitch = htmlspecialchars($_POST["phone"]);
         echo "<p>Veuillez rentrer dix chiffres</p>";
       }
+
      else {
      $customer = new Customer($_POST);
      //J'ajoute l'objet BOOK en base de données avec la méthode addBook() définie dans bookManager
