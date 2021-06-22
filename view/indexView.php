@@ -28,7 +28,7 @@ require "layout/header.php";
       <td><?php echo $book->getEditing(); ?></td>
       <td><?php echo $book->getCategory(); ?></td>
       <td><?php echo $book->getStatut(); ?></td>
-      <td> <a href="book.php?id=<?php echo $book->getId();?>" class="btn btn-info">Voir détails</a></td>
+      <td><a href="book.php?id=<?php echo $book->getId();?>" class="btn btn-info">Voir détails</a></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
