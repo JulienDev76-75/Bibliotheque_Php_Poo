@@ -42,7 +42,7 @@
           <a class="nav-link" href="addCustomer.php">Ajouter un emprunteur</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href=""></a>
+          <a class="nav-link" href="">Dernières nouveauté</a>
         </li>
       </ul>
     </div>
