@@ -5,31 +5,39 @@ require "layout/header.php";
 ?>
 <section>
 
-<span><h1 class="text-center text-danger">TEST DU MODAL</h1></span>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+<span><h1 class="text-center text-danger mt-5 mb-5">Liste des utilisateurs</h1></span>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">Identifiant</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Ville</th>
+      <th scope="col">Code Postal</th>
+      <th scope="col">Age</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Téléphone</th>
+      <th scope="col">Gestion</th>
+    </tr>
+  </thead>
+  <?php foreach ($customers as $customer): ?>
+  <tbody>
+    <tr>
+      <td><?php echo $customer->getId(); ?></td>
+      <td><?php echo $customer->getFirstname(); ?></td>
+      <td><?php echo $customer->getLastname(); ?></td>
+      <td><?php echo $customer->getAdress(); ?></td>
+      <td><?php echo $customer->getCity(); ?></td>
+      <td><?php echo $customer->getPostal_code(); ?></td>
+      <td><?php echo $customer->getAge(); ?></td>
+      <td><?php echo $customer->getMail(); ?></td>
+      <td><?php echo $customer->getPhone(); ?></td>
+      <td> <a href="user.php?id=<?php echo $customer->getId();?>" class="btn btn-info">Gérer</a></td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
 
 </section>
 

@@ -11,7 +11,7 @@ class Customer {
         private string $postal_code;
         private int $age;  
         private string $mail; 
-        private int $phone; 
+        private string $phone; 
 
         public function __construct(?array $data=null) {
             if($data) {
@@ -64,7 +64,7 @@ class Customer {
             return $this->city ;
         }
         
-        public function setPostal_code(int $postal_code) {
+        public function setPostal_code(string $postal_code) {
             $this->postal_code = $postal_code;
         }
     
@@ -72,7 +72,7 @@ class Customer {
             return $this->postal_code;
         }
     
-        public function setAge(string $age) {
+        public function setAge(int $age) {
             $this->age = $age;
         }
     
@@ -88,7 +88,7 @@ class Customer {
             return $this->mail;
         }
     
-        public function setPhone(int $phone) {
+        public function setPhone(string $phone) {
             $this->phone = $phone;
         }
     

@@ -14,7 +14,7 @@ CREATE TABLE customer (
     postal_code VARCHAR(250) NOT NULL,
     age int(3) NOT NULL,
     mail VARCHAR(50) NOT NULL,
-    phone INT(14) NOT NULL,
+    phone VARCHAR(11) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -34,11 +34,11 @@ CREATE TABLE book (
 
 INSERT INTO customer (firstname, lastName, adress, city, postal_code, age, mail, phone) 
 VALUES 
-('Julien', 'Coart', '47 rue de lessard', 'Rouen', '76100', 33, 'julien.coart@gmail.com', 0612548654),
-('Bob', 'Lemoche', '30 rue du canada', 'SouthPark', '69000', 45, 'southpark@gmail.com', 0612548654),
-('Jean', 'Castex', '10 rue de Paris', 'Paris', '75000', 50, 'jeanjean@gmail.com', 0612548654),
-('Bob', 'Morane' ,'20 rue Nicolas Sirkis', 'Tombouctou', '80630', 28, 'aventurier@gmail.com', 0612548654),
-('Jean', 'Alesis', '50 rue du virage manqué','NoWhere','50000', 54, 'jean.alesis@gmail.com', 064505405);
+('Julien', 'Coart', '47 rue de lessard', 'Rouen', '76100', 33, 'julien.coart@gmail.com', '0646229262'),
+('Bob', 'Lemoche', '30 rue du canada', 'SouthPark', '69000', 45, 'southpark@gmail.com', '0612548654'),
+('Jean', 'Castex', '10 rue de Paris', 'Paris', '75000', 50, 'jeanjean@gmail.com', '0665487952'),
+('Bob', 'Morane' ,'20 rue Nicolas Sirkis', 'Tombouctou', '80630', 28, 'aventurier@gmail.com', '0646352598'),
+('Jean', 'Alesis', '50 rue du virage manqué','NoWhere','50000', 54, 'jean.alesis@gmail.com', '0645054050');
 
 INSERT INTO book (title, author, editing, statut, category, pitch, loan_date, customer_id) 
 VALUES  
